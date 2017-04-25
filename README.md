@@ -14,3 +14,10 @@ You will need at least...
 * perl
 * others??
 
+## Folders
+
+The esp8266 folder goes into your QTcreator's template wizard directory
+
+The jserialmon folder is a Qt CLI project that you can use to see that output from the esp8266
+
+
