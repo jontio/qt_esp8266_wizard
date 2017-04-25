@@ -22,6 +22,10 @@ The jserialmon folder is a Qt CLI project that you can use to see the output fro
 
 ## Screenshots
 
+The wizard is minimal but does all I need it to do at the moment. You just click `File`, `New File or Project`, then `Other Project` and `ESP8266 Project` to start the wizard.
+
+![](8266wizard.png)
+
 Once the wizard has done it's thing you can use Qtcreator for your ESP8266 project. Qtcreator has the best autocompleation of any IDE so I highly recommend it.
 
 ![](esp8266-console.png)
