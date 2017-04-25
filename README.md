@@ -14,7 +14,7 @@ You will need at least...
 * perl
 * others??
 
-Getting MakeEspArduino working was a bit tricky I had to add the following code to line 175 of the makeEspArduino.mk makefile before it would compile things for me. 
+Getting MakeEspArduino working was a bit tricky, I had to add the following code to line 175 of the makeEspArduino.mk makefile before it would compile things for me. 
 
 ```
 TMPVAR := $(CPP_COM)
