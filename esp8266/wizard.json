@@ -1,0 +1,169 @@
+{
+	"version": 1,
+	"supportedProjectTypes": [  ],
+	"id": "A.ESP",
+	"category": "A.Project",
+	"trDescription": "Creates a Makefile based project for ESP8266",
+	"trDisplayName": "ESP8266 Project",
+	"trDisplayCategory": "Other Project",
+	"icon": "esp_logo.jpg",
+	"featuresRequired": [ ],
+	"options":
+	[
+		{ "key": "ProFileName", "value": "%{JS: Util.fileName('%{ProjectDirectory}/%{ProjectName}', 'creator')}" },
+		{ "key": "ProBaseName", "value": "%{JS: Util.fileName('%{ProjectDirectory}/%{ProjectName}')}" },
+		{ "key": "IsTopLevelProject", "value": "%{JS: !'%{Exists:ProjectExplorer.Profile.Ids}'}" },
+		{ "key": "CN", "value": "%{JS: Cpp.className('%{Class}')}" },
+		{ "key": "BOARD", "value": "%{board}" },
+		{ "key": "ESP_DIR", "value": "%{esp_dir}" },
+		{ "key": "MAKEESPARDUINO_DIR", "value": "%{makeesparduino_dir}" },
+		{ "key": "COM_PORT", "value": "%{com_port}" },
+		{ "key": "SKETCH", "value": "%{ProjectDirectory}/main.cpp" },
+		{ "key": "DEFAULTCOMPORT", "value": "COM8" }
+		
+	],
+
+	"pages":
+	[
+		{
+			"trDisplayName": "Project Location",
+			"trShortTitle": "Location",
+			"typeId": "Project",
+			"data": { "trDescription": "This wizard creates a ESP8266 Makefile based project" }
+		},
+
+		
+		{
+            "trDisplayName": "Define Class",
+            "trShortTitle": "Details",
+            "typeId": "Fields",
+            "data" :
+            [
+
+			
+				{
+                    "name": "Sp2",
+                    "type": "Spacer",
+                    "data": { "size": 12 }
+                },
+				
+                {
+                    "name": "esp_dir",
+                    "type": "PathChooser",
+                    "trDisplayName": "ESP Directory:",
+                    "mandatory": true,
+                    "data":
+                    {
+                        "kind": "existingDirectory",
+                        "basePath": "%{InitialPath}",
+                        "path": "%{InitialPath}"
+                    }
+                },
+				
+				{
+                    "name": "makeesparduino_dir",
+                    "type": "PathChooser",
+                    "trDisplayName": "makeEspArduino Directory:",
+                    "mandatory": true,
+                    "data":
+                    {
+                        "kind": "existingDirectory",
+                        "basePath": "%{InitialPath}",
+                        "path": "%{InitialPath}"
+                    }
+                },
+
+				
+				
+				{
+                    "name": "Sp2",
+                    "type": "Spacer",
+                    "data": { "size": 12 }
+                },
+				
+				
+				
+				{
+                    "name": "board",
+                    "trDisplayName": "Board name:",
+                    "mandatory": true,
+                    "type": "ComboBox",
+                    "data":
+					{
+						"items":
+						[ 
+							{"trKey": "Generic ESP8266 Module", "value": "generic" },
+							{ "trKey": "Generic ESP8285 Module", "value": "esp8285" },
+							{ "trKey": "ESPDuino (ESP-13 Module)", "value": "espduino" },
+							{ "trKey": "Adafruit HUZZAH ESP8266", "value": "huzzah" },
+							{ "trKey": "ESPresso Lite 1.0", "value": "espresso_lite_v1" },
+							{ "trKey": "ESPresso Lite 2.0", "value": "espresso_lite_v2" },
+							{ "trKey": "Phoenix 1.0", "value": "phoenix_v1" },
+							{ "trKey": "Phoenix 2.0", "value": "phoenix_v2" },
+							{ "trKey": "NodeMCU 0.9 (ESP-12 Module)", "value": "nodemcu" },
+							{ "trKey": "NodeMCU 1.0 (ESP-12E Module)", "value": "nodemcuv2" },
+							{ "trKey": "Olimex MOD-WIFI-ESP8266(-DEV)", "value": "modwifi" },
+							{ "trKey": "SparkFun ESP8266 Thing", "value": "thing" },
+							{ "trKey": "SparkFun ESP8266 Thing Dev", "value": "thingdev" },
+							{ "trKey": "SweetPea ESP-210", "value": "esp210" },
+							{ "trKey": "WeMos D1 R2 and mini", "value": "d1_mini" },
+							{ "trKey": "WeMos D1(Retired)", "value": "d1" },
+							{ "trKey": "ESPino (ESP-12 Module)", "value": "espino" },
+							{ "trKey": "ThaiEasyElec's ESPino", "value": "espinotee" },
+							{ "trKey": "WifInfo", "value": "wifinfo" },
+							{ "trKey": "Core Development Module", "value": "coredev" }
+						]
+					}
+					
+  
+                },
+				
+				{
+					"name": "com_port",
+                    "trDisplayName": "COM PORT:",
+                    "mandatory": true,
+                    "type": "LineEdit",
+                    "data":{"validator": "(?:(?:[a-zA-Z_][a-zA-Z_0-9]*::)*[a-zA-Z_][a-zA-Z_0-9]*|)" , "trText": "%{DEFAULTCOMPORT}"}
+				}
+                
+            ]
+        },
+
+		{
+			"trDisplayName": "Project Management",
+			"trShortTitle": "Summary",
+			"typeId": "Summary"
+		}
+	],
+	"generators":
+	[
+		{
+			"typeId": "File",
+			"data":
+			[
+
+				{
+					"source": "project.creator",
+					"target": "%{ProFileName}",
+					"openAsProject": true
+				},
+				{
+					"source": "project.config",
+					"target": "%{JS: Util.fileName('%{ProjectDirectory}/%{ProjectName}', 'config')}"
+				},
+				{
+					"source": "project.files",
+					"target": "%{JS: Util.fileName('%{ProjectDirectory}/%{ProjectName}', 'files')}"
+				},
+				{
+					"source": "project.includes",
+					"target": "%{JS: Util.fileName('%{ProjectDirectory}/%{ProjectName}', 'includes')}"
+				},
+				{
+                    "source": "src",
+                    "target": "%{ProjectDirectory}"
+                }
+			]
+		}
+	]
+}
