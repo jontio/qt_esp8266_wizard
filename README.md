@@ -8,13 +8,15 @@ Probably lots.
 
 You will need at least...
 
-* Qtcreator
-* https://github.com/plerup/makeEspArduino
-* https://github.com/esp8266/Arduino
-* perl
+* [Qtcreator](https://en.wikipedia.org/wiki/Qt_Creator)
+* [makeEspArduino](https://github.com/plerup/makeEspArduino)
+* [esp8266/Arduino](https://github.com/esp8266/Arduino)
+* [Perl](https://en.wikipedia.org/wiki/Perl)
 * others??
 
-Getting MakeEspArduino working was a bit tricky, I had to add the following code to line 175 of the makeEspArduino.mk makefile before it would compile things for me. 
+My system is a Windows 7 computer. I use [MSYS2](http://www.msys2.org/) and the included package manager pacman to install everything.
+
+Getting MakeEspArduino working was a bit tricky for me, I had to add the following code to line 175 of the makeEspArduino.mk makefile before it would compile things for me. 
 
 ```
 TMPVAR := $(CPP_COM)
