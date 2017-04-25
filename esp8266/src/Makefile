@@ -1,0 +1,32 @@
+# Parameters for compiling
+
+#some things that you could use
+#  SKETCH               Main source file
+#                         If not specified the first sketch in current
+#                         directory will be used. If none is found there,
+#                         a demo example will be used instead.
+#  LIBS                   Includes in the sketch file of libraries from within
+#                         the ESP Arduino directories are automatically
+#                         detected. If this is not enough, define this
+#                         variable with all libraries or directories needed.
+#  CHIP                 Set to esp8266 or esp32.
+#  BOARD                Name of the target board.
+#  FLASH_DEF            Flash partitioning info.
+#  BUILD_DIR            Directory for intermediate build files.
+#  BUILD_EXTRA_FLAGS    Additional parameters for the compilation commands
+#  FS_DIR               File system root directory
+#  UPLOAD_PORT          Serial flashing port name.
+#  UPLOAD_SPEED         Serial flashing baud rate.
+#  FLASH_FILE           File name for dump and restore flash operations
+#  VERBOSE              Set to 1 to get full printout of the build
+#  SINGLE_THREAD        Use only one build thread
+
+#this is all I need at the moment
+UPLOAD_PORT = %{COM_PORT}
+BOARD = %{BOARD}
+ESP_ROOT = %{ESP_DIR}
+SKETCH = %{SKETCH}
+
+# makeEspArduino makefile
+include %{MAKEESPARDUINO_DIR}/makeEspArduino.mk
+
