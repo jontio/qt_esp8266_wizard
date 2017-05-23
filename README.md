@@ -16,20 +16,6 @@ You will need at least...
 
 My system is a Windows 7 computer. I use [MSYS2](http://www.msys2.org/) and the included package manager pacman to install everything.
 
-Getting MakeEspArduino working was a bit tricky for me, I had to add the following code to line 175 of the makeEspArduino.mk makefile before it would compile things for me. 
-
-```
-TMPVAR := $(CPP_COM)
-CPP_COM = $(filter-out -o, $(TMPVAR))
-
-TMPVAR2 := $(S_COM)
-S_COM = $(filter-out -o, $(TMPVAR2))
-
-TMPVAR3 := $(C_COM)
-C_COM = $(filter-out -o, $(TMPVAR3))
-```
-
-
 ## Folders
 
 The esp8266 folder goes into your QTcreator's template wizard directory. For me this went in `E:\msys64\mingw64\share\qtcreator\templates\wizards`
