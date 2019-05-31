@@ -1,6 +1,9 @@
 # qt_esp8266_wizard
 A wizard for intergrating embeded ESP8266 modules into QtCreator using Arduino style setup loop thing.
 
+### June 2019 note
+
+N.B: I tried it out after a long time and download the new repos it didn't work for me anymore. So it looks like it's currently broken. I would like to fix it up but this time create a qt kit like I did with JADE. This would be a much cleaner solution. Anyway please not that this repo might not work.
 
 ## Requirements
 
